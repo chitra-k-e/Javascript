@@ -137,10 +137,14 @@
 //     });
 // })
 
-//promise
+
+//1.promise chaining
+//2.promise.all
 
 //.then() = used to print the return resolved/success value 
 //.catch() = used to get the error/rejected value.
+
+//promise chaining
 
 // let attendance = () =>{
 //     return new Promise((resolve, reject) =>{
@@ -212,15 +216,74 @@
 
 
 
-let func1 = (func2,name) =>{
-    console.log(`file ${name} is getting processed`);
-    setTimeout(()=>{
-        console.log(`file ${name} got downloaded`);
-        func2();
-    },2000);
+// let func1 = (func2,name) =>{
+//     console.log(`file ${name} is getting processed`);
+//     setTimeout(()=>{
+//         console.log(`file ${name} got downloaded`);
+//         func2();
+//     },2000);
+// }
+// let func2 = () =>{
+//     console.log("Download Completed");
+// }
+// let name1 = "ABC";
+// func1(func2,name1);
+
+
+// let a1 = () =>{
+//     return new Promise((resolve, reject) =>{
+//         let datas = false;
+//         if(datas)
+//             resolve("Datas returned");
+//         else
+//             reject("Datas never returned");
+//     })
+// }
+// a1().then((output)=>{
+//     console.log(output);
+// }).catch((output)=>{
+//     console.error(output)
+// })
+
+//promise all
+
+let a1 = () =>{
+    return new Promise((resolve, reject) =>{
+        let d1 = true;
+        if(d1)
+            resolve("a1 returned");
+        else
+            reject("a1 never returned");
+    })
 }
-let func2 = () =>{
-    console.log("Download Completed");
+let a2 = () =>{
+    return new Promise((resolve, reject) =>{
+        let d = true;
+        if(d)
+            resolve("a2 returned");
+        else
+            reject("a2 never returned");
+    })
 }
-let name1 = "ABC";
-func1(func2,name1);
+let a3 = () =>{
+    return new Promise((resolve, reject) =>{
+        let d2 = true;
+        if(d2)
+            resolve("a3 returned");
+        else
+            reject("a3 never returned");
+    })
+}
+
+async function dog(){
+    try{
+        let [dog1,dog2,dog3] = await Promise.all([a1(),a2(),a3()]);
+        console.log(dog1);
+        console.log(dog2);
+        console.log(dog3);
+    }
+    catch(error){
+        console.error(error);
+    }
+}
+dog();

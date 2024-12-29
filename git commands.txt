@@ -1,0 +1,21 @@
+git commands
+1.cloning = git clone "repo name".
+2.file creation = touch filename.ext
+.git = git initiate
+git add .
+git status
+git commit -m "meassage"
+git push -u origin branch-name
+
+1) logical && and logical || are short circuit operators because of condition checking.
+
+Class & Div: MSc   
+Training Program: Advanced FullStackProgram
+Venue: Mechatronics Seminar hall
+Date & Session: 27.12.24 & FN
+Topic covered: GitHub and javascript basics.
+Feedback: Introduction for react and hands-on task for git commands were very much usefull.
+
+Day2:
+
+react - SPA.
